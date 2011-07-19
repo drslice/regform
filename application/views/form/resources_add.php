@@ -1,0 +1,1 @@
+<?=View::factory('form/resources_edit')?>

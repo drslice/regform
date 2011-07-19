@@ -1,0 +1,15 @@
+<?php defined('SYSPATH') or die('No direct script access.'); ?>
+
+2010-09-23 15:06:27 --- ERROR: Kohana_Exception [ 0 ]: The level property does not exist in the Model_User class ~ MODPATH/orm/classes/kohana/orm.php [ 373 ]
+2010-09-23 15:15:49 --- ERROR: ErrorException [ 8 ]: Undefined variable: levels ~ APPPATH/views/user/edit.php [ 35 ]
+2010-09-23 15:16:26 --- ERROR: ErrorException [ 8 ]: Undefined variable: user_level ~ APPPATH/views/user/edit.php [ 37 ]
+2010-09-23 15:20:24 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:20:49 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:21:14 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:23:39 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:24:18 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:26:46 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 15:52:50 --- ERROR: ErrorException [ 1 ]: Call to a member function pk() on a non-object ~ MODPATH/orm/classes/kohana/orm.php [ 419 ]
+2010-09-23 16:17:27 --- ERROR: ErrorException [ 8 ]: Undefined variable: user ~ APPPATH/views/account/view.php [ 25 ]
+2010-09-23 16:17:38 --- ERROR: ErrorException [ 8 ]: Undefined variable: user ~ APPPATH/views/account/view.php [ 29 ]
+2010-09-23 16:51:49 --- ERROR: Database_Exception [ 1054 ]: Unknown column 'levels.user_id' in 'where clause' [ SELECT `levels`.* FROM `levels` WHERE `levels`.`user_id` = '1' ORDER BY `levels`.`id` ASC LIMIT 1 ] ~ MODPATH/database/classes/kohana/database/mysql.php [ 178 ]
