@@ -198,7 +198,7 @@ class Controller_Form extends Controller_Base
 	
 	
 	/**
-	 * View a form.
+	 * View a form and optionally modify it's status
 	 * @param int $id
 	 */
 	public function action_view($id = 0, $modify = 0)
@@ -224,6 +224,7 @@ class Controller_Form extends Controller_Base
 					if (Kohana::$environment != Kohana::PRODUCTION)
 					{
 						$this->template->error .= "<br/>Exception Message: ".$e->getMessage();
+						$this->template->error .= "in <b>".$e->getFile()."</b> on line <b>".$e->getLine()."</b>";
 					}
 				}
 				break;
@@ -250,6 +251,7 @@ class Controller_Form extends Controller_Base
 					if (Kohana::$environment != Kohana::PRODUCTION)
 					{
 						$this->template->error .= "\n<br/>Exception Message: ".$e->getMessage();
+						$this->template->error .= "in <b>".$e->getFile()."</b> on line <b>".$e->getLine()."</b>";
 					}
 					else
 					{

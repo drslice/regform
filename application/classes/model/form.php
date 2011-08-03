@@ -89,7 +89,7 @@ class Model_Form extends ORM
 		}
 		$this->unfinalize();
 		
-		$sql = "CREATE TABLE {$this->data_table} (\n id INT NOT NULL AUTO_INCREMENT";
+		$sql = "CREATE TABLE {$this->data_table} (\n id INT AUTO_INCREMENT";
 		foreach ($this->fields->find_all() as $field)
 		{
 			$sql .= ",\n field{$field->num} ";
@@ -97,19 +97,19 @@ class Model_Form extends ORM
 			{
 				case 'text':
 				case 'select':
-					$sql .= "VARCHAR(200) NOT NULL";
+					$sql .= "VARCHAR(200)";
 					break;
 				case 'textarea':
-					$sql .= "TEXT NOT NULL";
+					$sql .= "TEXT";
 					break;
 				case 'yesno':
-					$sql .= "TINYINT NOT NULL";
+					$sql .= "TINYINT";
 					break;
 				default:
 					throw new Exception("Invalid field type: {$field->type}");
 			}
 		}
-		$sql .= ",\n reg_time INT NOT NULL";
+		$sql .= ",\n reg_time INT";
 		$sql .= ",\n PRIMARY KEY (id) \n)";
 		
 		$this->_db->query(null, $sql, false);
@@ -130,11 +130,12 @@ class Model_Form extends ORM
 		$this->_db->query(null, "DROP TABLE IF EXISTS {$this->data_table}_previous", false);
 		try
 		{
-			$this->_db->query(null, "RENAME TABLE {$this->data_table} TO {$this->data_table}_previous", false);
+			$this->_db->query(null, "ALTER TABLE {$this->data_table} RENAME TO {$this->data_table}_previous", false);
 		}
 		catch (Exception $e)
 		{
-			if (strpos($e->getMessage(), "Can't find file:") === false)
+			$msg = $e->getMessage();
+			if (strpos($msg, "Can't find file:") === false and (strpos($msg, "no such table") === false))
 			{
 				throw $e;
 			}
